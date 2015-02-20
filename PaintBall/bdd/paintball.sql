@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 20 Février 2015 à 12:31
+-- Généré le :  Ven 20 Février 2015 à 13:43
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -27,11 +27,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `ami` (
-  `id` int(32) NOT NULL AUTO_INCREMENT,
   `idUtilisateur1` int(32) NOT NULL,
   `idUtilisateur2` int(32) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`idUtilisateur1`,`idUtilisateur2`),
+  KEY `idUtilisateur1` (`idUtilisateur1`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -56,6 +56,7 @@ CREATE TABLE IF NOT EXISTS `carte` (
 
 CREATE TABLE IF NOT EXISTS `equipe` (
   `id` int(32) NOT NULL AUTO_INCREMENT,
+  `nomEquipe` varchar(32) NOT NULL,
   `terrainEquipe` varchar(32) NOT NULL,
   `logoEquipe` varchar(32) NOT NULL,
   `departementEquipe` int(32) NOT NULL,
@@ -69,11 +70,10 @@ CREATE TABLE IF NOT EXISTS `equipe` (
 --
 
 CREATE TABLE IF NOT EXISTS `equipeutilisateur` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idEquipe` int(11) NOT NULL,
   `idUtilisateur` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`idEquipe`,`idUtilisateur`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -116,11 +116,10 @@ CREATE TABLE IF NOT EXISTS `match` (
 --
 
 CREATE TABLE IF NOT EXISTS `participantevenement` (
-  `id` int(32) NOT NULL AUTO_INCREMENT,
   `idEvenement` int(32) NOT NULL,
   `idUtilisateur` int(32) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`idEvenement`,`idUtilisateur`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
