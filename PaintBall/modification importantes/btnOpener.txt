@@ -1,0 +1,50 @@
+	$(function() {
+				
+				$( "#dialog_connexion" ).dialog
+				({
+					autoOpen: false,
+					show: {
+						effect: "blind",
+						duration: 1000
+					},
+					hide: {
+						
+						effect: "explode",
+						duration: 1000
+					}
+				});
+
+				$( "#opener_connexion" ).click
+				(function() 
+				{
+					$( "#dialog_connexion" ).dialog( "open" );
+				});
+				
+				});
+		</script>	
+		
+		<script>
+			
+			$(function() 
+			{
+				
+				$( "#dialog_inscription" ).dialog
+				({
+					autoOpen: false,
+					show: {
+						effect: "blind",
+						duration: 1000
+					},
+					hide: {
+						
+						effect: "explode",
+						duration: 1000
+					}
+				});
+
+				$( "#opener_inscription" ).click
+				(function() {
+					$( "#dialog_inscription" ).dialog( "open" );
+				});
+			});
+		</script>		
